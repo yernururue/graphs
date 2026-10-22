@@ -36,5 +36,5 @@ tasks:
     status: done
     evidence: User authorized push and merge; fetched origin (main at 88b775e), independent review approved main..feature/dsu, and integrator reran mvn -B clean verify (36 passing tests). Saved current user file hashes/staged patch; fast-forward is available.
   - id: dsu-publication
-    status: in_progress
-    evidence: Push feature/dsu, fast-forward main, verify merged tests, then push main to origin and verify remote branch tips while preserving user changes.
+    status: done
+    evidence: Pushed feature/dsu, fast-forwarded main, and ran mvn -B test on merged main (36 passing tests). Pushed main and verified both remote branches at 2b664b6, containing DSU commits 254fa20 and 7468e36. Original staged patch and all saved user file hashes are unchanged.
