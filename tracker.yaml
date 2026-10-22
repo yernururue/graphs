@@ -16,8 +16,8 @@ tasks:
     status: done
     evidence: Independent reviewer approved byte-identical transfer of all 12 files, unchanged original index and staged patch, preserved Main/PDF, and mvn -B test (25 passing tests).
   - id: final-verification
-    status: in_progress
-    evidence: Integrator clean Maven verify and local commits with preservation of original staged files remain.
+    status: done
+    evidence: Integrator mvn -B clean verify passed 25 tests and built the JAR here; independent review approved. Local commits use --only to preserve all original staged blobs and user files; whitespace checks passed.
   - id: wrong-location-cleanup
-    status: pending
-    evidence: After destination verification, archive only agent-created artifacts from the previous directory and preserve all original learning materials.
+    status: done
+    evidence: Moved only agent-created files, Git history, and build output from the previous directory to /Users/macbook/.codex/backups/daa-graph-core-wrong-location-877vwgxx; all 17 original PDFs remain unchanged.
