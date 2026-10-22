@@ -31,4 +31,10 @@ tasks:
     evidence: Independent reviewer approved DSU, both heuristics, precise counters/reset, README, and 11 new tests; mvn -B test passed all 36 tests. Integrator inspected source and tests and confirmed user files/staged changes preserved.
   - id: dsu-verification
     status: done
-    evidence: Integrator mvn -B clean verify passed 36 tests (11 DSU), 0 failures/errors/skipped, JAR built with release 17. Independent DSU review approved; whitespace checks passed and original user file hashes/staged patch are intact. Work remains local on feature/dsu.
+    evidence: Integrator mvn -B clean verify passed 36 tests (11 DSU), 0 failures/errors/skipped, JAR built with release 17. Independent DSU review approved; whitespace checks passed and original user file hashes/staged patch are intact.
+  - id: dsu-publish-preflight
+    status: done
+    evidence: User authorized push and merge; fetched origin (main at 88b775e), independent review approved main..feature/dsu, and integrator reran mvn -B clean verify (36 passing tests). Saved current user file hashes/staged patch; fast-forward is available.
+  - id: dsu-publication
+    status: in_progress
+    evidence: Push feature/dsu, fast-forward main, verify merged tests, then push main to origin and verify remote branch tips while preserving user changes.
