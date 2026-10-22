@@ -1,0 +1,23 @@
+scope: Assignment 3 - Graph Core only
+project: /Users/macbook/Yernur/assignments/3assignment_da
+integrator: primary agent
+decisions:
+  - Transfer the reviewed Graph Core implementation into this project.
+  - Preserve existing src/Main.java, PDF, IDE files, .gitignore, and staged Git changes.
+  - Only the integrator updates this tracker and creates local commits.
+tasks:
+  - id: inspect-destination
+    status: done
+    evidence: Read project files and Git state; no AGENTS.md or tracker existed. Existing main branch has no commits, six user files are staged, and src/Main.java is an empty entry point. Assignment PDF matches the source copy.
+  - id: transfer-graph-core
+    status: done
+    evidence: Integrator verified SHA-256 equality of all 12 transferred files and unchanged original Git index entries; implementer ran mvn -B test here (25 tests, 0 failures/errors) and verified existing user files unchanged.
+  - id: independent-review
+    status: done
+    evidence: Independent reviewer approved byte-identical transfer of all 12 files, unchanged original index and staged patch, preserved Main/PDF, and mvn -B test (25 passing tests).
+  - id: final-verification
+    status: in_progress
+    evidence: Integrator clean Maven verify and local commits with preservation of original staged files remain.
+  - id: wrong-location-cleanup
+    status: pending
+    evidence: After destination verification, archive only agent-created artifacts from the previous directory and preserve all original learning materials.
