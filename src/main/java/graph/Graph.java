@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/** Weighted graph with vertices numbered from 0 to n - 1. */
 public class Graph {
     private final List<List<Edge>> adjacency;
     private final boolean directed;
@@ -20,18 +19,15 @@ public class Graph {
         }
     }
 
-    /** Adds an edge, preserving parallel edges and insertion order. */
     public void addEdge(int from, int to, int weight) {
         checkVertex(from);
         checkVertex(to);
         adjacency.get(from).add(new Edge(from, to, weight));
         if (!directed) {
-            // A self-loop also gets two entries in an undirected graph.
             adjacency.get(to).add(new Edge(to, from, weight));
         }
     }
 
-    /** Returns a read-only view that reflects later additions to this vertex. */
     public List<Edge> neighbors(int vertex) {
         checkVertex(vertex);
         return Collections.unmodifiableList(adjacency.get(vertex));

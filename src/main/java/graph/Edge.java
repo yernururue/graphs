@@ -1,6 +1,5 @@
 package graph;
 
-/** One immutable weighted edge with its source and destination. */
 public class Edge {
     public final int from;
     public final int to;

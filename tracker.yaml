@@ -1,10 +1,12 @@
-scope: Assignment 3 - Graph Core only
+scope: Assignment 3 - Graph Core and DSU
 project: /Users/macbook/Yernur/assignments/3assignment_da
 integrator: primary agent
 decisions:
   - Transfer the reviewed Graph Core implementation into this project.
   - Preserve existing src/Main.java, PDF, IDE files, .gitignore, and staged Git changes.
   - Only the integrator updates this tracker and creates local commits.
+  - DSU uses int parent/size arrays, union by size, and iterative full path compression in package algorithms.
+  - Valid find calls include the two calls inside union; successfulUnions counts actual merges; dsuOps is their sum. makeSet resets state and counters.
 tasks:
   - id: inspect-destination
     status: done
@@ -21,3 +23,12 @@ tasks:
   - id: wrong-location-cleanup
     status: done
     evidence: Moved only agent-created files, Git history, and build output from the previous directory to /Users/macbook/.codex/backups/daa-graph-core-wrong-location-877vwgxx; all 17 original PDFs remain unchanged.
+  - id: dsu-context
+    status: done
+    evidence: Read PDF DSU requirements, existing Java/Maven/README, and Git state in this project. Baseline mvn -B test passed 25 tests; saved original staged changes and user file hashes; working on feature/dsu.
+  - id: dsu-implementation
+    status: done
+    evidence: Independent reviewer approved DSU, both heuristics, precise counters/reset, README, and 11 new tests; mvn -B test passed all 36 tests. Integrator inspected source and tests and confirmed user files/staged changes preserved.
+  - id: dsu-verification
+    status: in_progress
+    evidence: Independent review passed; integrator clean Maven verify and local logical commits remain. User file hashes and original staged patch match the saved baseline.

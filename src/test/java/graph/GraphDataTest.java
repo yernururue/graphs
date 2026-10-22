@@ -20,7 +20,6 @@ class GraphDataTest {
         assertNeighbors(graph, 2, new int[][]{{3, 4}});
         assertNeighbors(graph, 3, new int[][]{{4, 1}});
         assertNeighbors(graph, 4, new int[][]{});
-        // Vertex order 0, 1, 2, 3, 4 is topological: every edge goes forward.
         for (int vertex = 0; vertex < graph.vertexCount(); vertex++) {
             for (Edge edge : graph.neighbors(vertex)) {
                 assertTrue(edge.from < edge.to);
@@ -37,7 +36,6 @@ class GraphDataTest {
         assertNeighbors(graph, 0, new int[][]{{1, 2}, {1, 5}});
         assertNeighbors(graph, 1, new int[][]{{2, -1}, {1, 7}});
         assertNeighbors(graph, 2, new int[][]{{0, 0}});
-        // These three edges form the cycle 0 -> 1 -> 2 -> 0.
         assertTrue(graph.hasEdge(0, 1));
         assertTrue(graph.hasEdge(1, 2));
         assertTrue(graph.hasEdge(2, 0));
@@ -61,7 +59,6 @@ class GraphDataTest {
         assertTrue(graph.neighbors(5).isEmpty());
     }
 
-    /** Each expected row is {destination, weight}; source is the selected vertex. */
     private static void assertNeighbors(Graph graph, int vertex, int[][] expected) {
         List<Edge> actual = graph.neighbors(vertex);
         assertEquals(expected.length, actual.size(), "Neighbor count for vertex " + vertex);

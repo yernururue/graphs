@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-/** Reads a graph from a header followed by the declared number of edge lines. */
 public class GraphReader {
     public static Graph read(Path path) throws IOException {
         try (BufferedReader reader = Files.newBufferedReader(path)) {

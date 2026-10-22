@@ -1,8 +1,9 @@
-# Assignment 3: Graph Core
+# Assignment 3: Graph Core и DSU
 
-Учебная реализация взвешенного графа на Java. Текущий объём — хранение графа,
-добавление и проверка рёбер, чтение из файла и тесты. Алгоритмы обхода и поиска
-пути в этот проект не входят.
+Учебная реализация взвешенного графа и системы непересекающихся множеств (DSU)
+на Java. Текущий объём — хранение графа, добавление и проверка рёбер, чтение
+из файла, объединение множеств и тесты. Алгоритмы обхода и поиска пути в этот
+проект не входят.
 
 ## Сборка
 
@@ -24,6 +25,8 @@ mvn clean verify
 - `src/main/java/graph/Graph.java` — граф со списками смежности.
 - `src/main/java/graph/GraphReader.java` — чтение графа из текстового файла.
 - `src/test/java/graph/` — тесты API, обработки ошибок и всех файлов примеров.
+- `src/main/java/algorithms/DSU.java` — система непересекающихся множеств.
+- `src/test/java/algorithms/DSUTest.java` — тесты DSU, включая сравнение с независимой моделью.
 - `data/` — три входных файла.
 
 ## Формат файла
@@ -84,7 +87,8 @@ from to weight
 в методах графа — `IndexOutOfBoundsException`. `addEdge` проверяет оба конца
 до изменения списков.
 
-Пример Java (внутри метода с `throws IOException`, запуск из корня проекта):
+Пример Java, запуск из корня проекта. Печатает число вершин `5`, наличие ребра
+`true` и исходящие рёбра вершины `0`:
 
 ```java
 import graph.Edge;
@@ -93,12 +97,15 @@ import graph.GraphReader;
 import java.io.IOException;
 import java.nio.file.Path;
 
-// Внутри метода:
-Graph graph = GraphReader.read(Path.of("data", "directed_acyclic.txt"));
-System.out.println(graph.vertexCount()); // 5
-System.out.println(graph.hasEdge(0, 1)); // true
-for (Edge edge : graph.neighbors(0)) {
-    System.out.println(edge.from + " -> " + edge.to + ", weight = " + edge.weight);
+public class GraphExample {
+    public static void main(String[] args) throws IOException {
+        Graph graph = GraphReader.read(Path.of("data", "directed_acyclic.txt"));
+        System.out.println(graph.vertexCount());
+        System.out.println(graph.hasEdge(0, 1));
+        for (Edge edge : graph.neighbors(0)) {
+            System.out.println(edge.from + " -> " + edge.to + ", weight = " + edge.weight);
+        }
+    }
 }
 ```
 
@@ -110,6 +117,56 @@ for (Edge edge : graph.neighbors(0)) {
 Конструктор графа работает за `O(n)`, `addEdge` — амортизированно за `O(1)`,
 `hasEdge` — за `O(outdegree(from))`, то есть по длине исходящего списка.
 Память — `O(n + m)`; удвоение записей в неориентированном графе не меняет оценку.
+
+## DSU
+
+`DSU(int n)` создаёт `n` отдельных множеств для элементов от `0` до `n - 1`.
+Массив `parent` хранит родителей, `size` — размеры деревьев у корней.
+`union` присоединяет меньшее дерево к большему. `find` сначала итеративно ищет
+корень, затем вторым проходом направляет все элементы пройденного пути прямо
+к корню: это полное сжатие пути без рекурсии.
+
+| Метод | Назначение |
+| --- | --- |
+| `makeSet(n)` | Заново создать `n` отдельных множеств, сбросить оба счётчика. |
+| `find(x)` | Вернуть представителя множества элемента `x` и сжать путь. |
+| `union(x, y)` | Вернуть `true` при слиянии разных множеств, иначе `false`. |
+| `components()` | Число текущих множеств. |
+| `findCalls()` | Число корректных вызовов `find`, включая вызовы внутри `union`. |
+| `successfulUnions()` | Число фактических слияний разных множеств. |
+| `dsuOps()` | Сумма `findCalls()` и `successfulUnions()`. |
+
+Каждый корректный `union` вызывает `find` дважды, включая повторное объединение
+и `union(x, x)`. Только фактическое слияние увеличивает `successfulUnions` и
+уменьшает `components`. Чтение счётчиков и числа компонент их не изменяет.
+`makeSet` допускает `0` и изменение размера. Отрицательный размер вызывает
+`IllegalArgumentException`, неверный элемент — `IndexOutOfBoundsException`.
+Оба аргумента `union` проверяются до поиска: некорректные операции не меняют
+состояние и счётчики; отрицательный размер не сбрасывает существующую DSU.
+
+Пример печатает `true`, `false`, `3`, `4`, `1`, `5`:
+
+```java
+import algorithms.DSU;
+
+public class DSUExample {
+    public static void main(String[] args) {
+        DSU dsu = new DSU(4);
+        System.out.println(dsu.union(0, 1));
+        System.out.println(dsu.union(1, 0));
+        System.out.println(dsu.components());
+        System.out.println(dsu.findCalls());
+        System.out.println(dsu.successfulUnions());
+        System.out.println(dsu.dsuOps());
+    }
+}
+```
+
+Инициализация и `makeSet` занимают `O(n)` времени; память DSU — `O(n)`.
+С объединением по размеру и сжатием пути `find` и `union` работают
+амортизированно за `O(α(n))`, где `α` — обратная функция Аккермана.
+Тесты сравнивают случайные объединения (`Random(42)`) с независимой моделью
+меток, проверяют счётчики и сжатие пути, а также работу на 100000 элементах.
 
 ## Использование AI
 
