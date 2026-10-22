@@ -30,5 +30,5 @@ tasks:
     status: done
     evidence: Independent reviewer approved DSU, both heuristics, precise counters/reset, README, and 11 new tests; mvn -B test passed all 36 tests. Integrator inspected source and tests and confirmed user files/staged changes preserved.
   - id: dsu-verification
-    status: in_progress
-    evidence: Independent review passed; integrator clean Maven verify and local logical commits remain. User file hashes and original staged patch match the saved baseline.
+    status: done
+    evidence: Integrator mvn -B clean verify passed 36 tests (11 DSU), 0 failures/errors/skipped, JAR built with release 17. Independent DSU review approved; whitespace checks passed and original user file hashes/staged patch are intact. Work remains local on feature/dsu.
