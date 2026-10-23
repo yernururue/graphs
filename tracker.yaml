@@ -54,5 +54,5 @@ tasks:
     status: done
     evidence: Independent re-review confirmed Prim and Kruskal both have direct loop/parallel/tie/extreme-weight/long-total assertions; no findings remain.
   - id: mst-verification
-    status: in_progress
-    evidence: Integrator is running clean verification, preserving the existing index, and creating local feature commits.
+    status: done
+    evidence: Integrator ran mvn -B clean verify (42 tests, 0 failures/errors/skips, JAR built), git diff --check passed, and created commits bd6e73b and 2baa285 using path-limited commits. All original staged IDE entries remain staged and unchanged; no push performed.
