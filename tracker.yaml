@@ -72,9 +72,12 @@ tasks:
   - id: scc-topo-rereview
     status: done
     evidence: Independent re-review verified edgeScans counts both DFS passes (2m), reverse build is excluded, test and README agree; no findings remain.
+  - id: scc-topo-verification
+    status: done
+    evidence: Integrator ran mvn -B clean verify after the 2m counter fix: 49 tests passed, jar built. Commit 7f88e5c; original user staging preserved.
   - id: dag-paths-implementation
-    status: pending
-    evidence: Awaiting DAG shortest paths and Bellman-Ford comparison tests.
+    status: in_progress
+    evidence: Starting DAG shortest paths using Kahn order and all-indegree-zero virtual-source initialization; compare against Bellman-Ford.
   - id: dag-paths-review
     status: pending
     evidence: Awaiting independent review.
