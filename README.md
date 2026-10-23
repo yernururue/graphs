@@ -243,9 +243,3 @@ then writes `results/results.csv`. The table contains 50 rows. The file is
 replaced by an atomic move of a temporary file; if the file system does not
 support `ATOMIC_MOVE`, the error is propagated and the previous CSV remains in
 place.
-
-## Use of AI
-
-The code, tests, and documentation were prepared with the help of OpenAI Codex.
-This attribution identifies the source of assistance; it does not replace the
-student's own review and explanation of the solution.
