@@ -39,8 +39,8 @@ tasks:
     status: done
     evidence: Pushed feature/dsu, fast-forwarded main, and ran mvn -B test on merged main (36 passing tests). Pushed main and verified both remote branches at 2b664b6, containing DSU commits 254fa20 and 7468e36. Original staged patch and all saved user file hashes are unchanged.
   - id: mst-context
-    status: in_progress
-    evidence: Read MST requirements from the assignment PDF and confirmed existing Graph/Edge/DSU APIs; created feature/mst and saved the implementation plan.
+    status: done
+    evidence: Read MST requirements from the assignment PDF and confirmed existing Graph/Edge/DSU APIs; implemented and reviewed MST on feature/mst.
   - id: mst-implementation
     status: done
     evidence: Implementer added Kruskal, Prim, immutable MST.Result, README notes, and six TDD tests; RED showed expected missing-API compile failure and full Maven suite passed 42 tests. User staged files remained untouched.
@@ -56,3 +56,34 @@ tasks:
   - id: mst-verification
     status: done
     evidence: Integrator ran mvn -B clean verify (42 tests, 0 failures/errors/skips, JAR built), git diff --check passed, and created commits bd6e73b and 2baa285 using path-limited commits. All original staged IDE entries remain staged and unchanged; no push performed.
+
+  - id: scc-topo-context
+    status: in_progress
+    evidence: Read PDF sections 4–10 and created feature/scc plus the remaining assignment plan.
+  - id: scc-topo-implementation
+    status: pending
+    evidence: Awaiting iterative Kosaraju, Kahn, and tests.
+  - id: scc-topo-review
+    status: pending
+    evidence: Awaiting independent review.
+  - id: dag-paths-implementation
+    status: pending
+    evidence: Awaiting DAG shortest paths and Bellman-Ford comparison tests.
+  - id: dag-paths-review
+    status: pending
+    evidence: Awaiting independent review.
+  - id: metrics-benchmark-implementation
+    status: pending
+    evidence: Awaiting counters, seeded generator, benchmark, and self-checks.
+  - id: metrics-benchmark-review
+    status: pending
+    evidence: Awaiting independent review.
+  - id: report-implementation
+    status: pending
+    evidence: Awaiting benchmark evidence and report/plots.
+  - id: report-review
+    status: pending
+    evidence: Awaiting independent report review.
+  - id: remaining-assignment-verification
+    status: pending
+    evidence: Awaiting full verification and commits.
