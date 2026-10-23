@@ -4,7 +4,6 @@ import graph.Graph;
 
 import java.util.Random;
 
-/** Reproducible random graph families used by the benchmark. */
 public final class GraphGenerator {
     private static final long SEED = 42L;
 

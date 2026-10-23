@@ -32,7 +32,6 @@ class GraphGeneratorTest {
     @Test
     void dagEdgesAlwaysFollowAConsistentTopologicalRank() {
         Graph dag = GraphGenerator.dag(100, 800);
-        // Recover the rank constraints and ensure they form an acyclic graph.
         assertDoesNotThrow(() -> algorithms.TopologicalSort.kahn(dag));
         for (int from = 0; from < dag.vertexCount(); from++) {
             for (Edge edge : dag.neighbors(from)) assertNotEquals(edge.from, edge.to);

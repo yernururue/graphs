@@ -8,11 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
-/** Topological ordering of directed acyclic graphs. */
 public final class TopologicalSort {
     private TopologicalSort() { }
 
-    /** Immutable result of Kahn's algorithm. */
     public static final class Result {
         private final List<Integer> order;
         private final long edgeScans;
@@ -29,7 +27,6 @@ public final class TopologicalSort {
         public AlgorithmMetrics metrics() { return metrics; }
     }
 
-    /** Returns a topological order, or throws if the directed graph contains a cycle. */
     public static Result kahn(Graph graph) {
         requireDirected(graph);
         int n = graph.vertexCount();

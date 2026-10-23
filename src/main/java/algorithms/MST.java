@@ -7,11 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
-/** Minimum spanning tree algorithms that return a forest for disconnected graphs. */
 public final class MST {
     private MST() { }
 
-    /** Immutable result of a minimum spanning forest computation. */
     public static final class Result {
         private final List<Edge> edges;
         private final long totalWeight;
@@ -31,7 +29,6 @@ public final class MST {
         public AlgorithmMetrics metrics() { return metrics; }
     }
 
-    /** Computes a minimum spanning forest by sorting logical edges and joining components. */
     public static Result kruskal(Graph graph) {
         requireUndirected(graph);
         List<Edge> edges = new ArrayList<>();
@@ -64,7 +61,6 @@ public final class MST {
                 new AlgorithmMetrics(dsu.dsuOps(), edgeScans, comparisons[0], 0));
     }
 
-    /** Computes a minimum spanning forest using Prim's priority-queue expansion. */
     public static Result prim(Graph graph) {
         requireUndirected(graph);
         int n = graph.vertexCount();

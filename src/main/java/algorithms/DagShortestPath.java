@@ -7,11 +7,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/** Shortest paths in a directed acyclic graph from all zero-indegree vertices. */
 public final class DagShortestPath {
     private DagShortestPath() { }
 
-    /** Immutable shortest-path results. Array accessors return defensive copies. */
     public static final class Result {
         private final long[] distances;
         private final int[] parents;
@@ -33,7 +31,6 @@ public final class DagShortestPath {
         public long edgeScans() { return edgeScans; }
         public AlgorithmMetrics metrics() { return new AlgorithmMetrics(0, edgeScans, comparisons, 0); }
 
-        /** Returns a shortest path from one of the zero-indegree vertices to target. */
         public List<Integer> pathTo(int target) {
             if (target < 0 || target >= parents.length) {
                 throw new IndexOutOfBoundsException("Vertex out of range: " + target);
@@ -45,10 +42,6 @@ public final class DagShortestPath {
         }
     }
 
-    /**
-     * Computes shortest paths from every indegree-zero vertex, equivalent to adding
-     * a virtual source with zero-weight edges to all sources. Runs in O(V + E).
-     */
     public static Result shortestPaths(Graph graph) {
         if (graph == null) throw new IllegalArgumentException("Graph must not be null");
         if (!graph.isDirected()) throw new IllegalArgumentException("DAG shortest paths require a directed graph");

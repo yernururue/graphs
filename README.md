@@ -1,12 +1,13 @@
-# Assignment 3: Graph Core и DSU
+# Assignment 3: Graph Core and DSU
 
-Учебная реализация алгоритмов на взвешенном графе и системы непересекающихся
-множеств (DSU) на Java. Проект включает хранение и чтение графов, компоненты
-сильной связности, топологическую сортировку, минимальный остовный лес и DSU.
+An educational Java implementation of algorithms for weighted graphs and the
+disjoint-set union (DSU) data structure. The project includes graph storage and
+file parsing, strongly connected components, topological sorting, minimum
+spanning forests, and DSU.
 
-## Сборка
+## Build
 
-Нужны JDK 17 или новее и Maven. Выполняйте команды из корня проекта:
+JDK 17 or later and Maven are required. Run these commands from the project root:
 
 ```sh
 mvn test
@@ -14,83 +15,83 @@ mvn package
 mvn clean verify
 ```
 
-Первая команда запускает JUnit 5, вторая также собирает
-`target/graph-core-1.0-SNAPSHOT.jar`, третья проверяет проект после чистой сборки.
-Исходники компилируются с совместимостью Java 17.
+The first command runs the JUnit 5 tests. The second also builds
+`target/graph-core-1.0-SNAPSHOT.jar`. The third verifies the project from a clean
+build. Sources are compiled for Java 17 compatibility.
 
-## Структура
+## Project structure
 
-- `src/main/java/graph/Edge.java` — одно взвешенное ребро.
-- `src/main/java/graph/Graph.java` — граф со списками смежности.
-- `src/main/java/graph/GraphReader.java` — чтение графа из текстового файла.
-- `src/test/java/graph/` — тесты API, обработки ошибок и всех файлов примеров.
-- `src/main/java/algorithms/DSU.java` — система непересекающихся множеств.
-- `src/test/java/algorithms/DSUTest.java` — тесты DSU, включая сравнение с независимой моделью.
-- `src/main/java/algorithms/SCC.java` — компоненты сильной связности алгоритмом Косарайю.
-- `src/main/java/algorithms/TopologicalSort.java` — топологическая сортировка алгоритмом Кана.
-- `src/test/java/algorithms/SCCAndTopologicalSortTest.java` — тесты SCC и DAG-упорядочения.
-- `data/` — три входных файла.
+- `src/main/java/graph/Edge.java` — one weighted edge.
+- `src/main/java/graph/Graph.java` — a graph represented by adjacency lists.
+- `src/main/java/graph/GraphReader.java` — reads a graph from a text file.
+- `src/test/java/graph/` — tests for the API, error handling, and all sample files.
+- `src/main/java/algorithms/DSU.java` — the disjoint-set union data structure.
+- `src/test/java/algorithms/DSUTest.java` — DSU tests, including comparison with an independent model.
+- `src/main/java/algorithms/SCC.java` — strongly connected components using Kosaraju's algorithm.
+- `src/main/java/algorithms/TopologicalSort.java` — topological sorting using Kahn's algorithm.
+- `src/test/java/algorithms/SCCAndTopologicalSortTest.java` — tests for SCC and DAG ordering.
+- `data/` — three input files.
 
-## Формат файла
+## File format
 
-Первая строка содержит ровно три токена:
+The first line contains exactly three tokens:
 
 ```text
 n m directed
 ```
 
-Режим может быть только `directed` или `undirected` (регистр важен).
-`n` — число вершин, `m` — число логических рёбер; оба — неотрицательные `int`.
-Вершины нумеруются от `0` до `n - 1`. Допустимы `n = 0` и `m = 0`.
-Далее идут ровно `m` строк вида:
+The mode must be either `directed` or `undirected` (case-sensitive). `n` is the
+number of vertices and `m` is the number of logical edges; both are nonnegative
+`int` values. Vertices are numbered from `0` to `n - 1`. Both `n = 0` and `m = 0`
+are allowed. The next `m` lines have this form:
 
 ```text
 from to weight
 ```
 
-Все три значения — `int`; вес может быть нулевым, отрицательным или любым другим
-значением от `-2147483648` до `2147483647`. Допустимы петли и параллельные рёбра.
-Пробелы и табуляция разделяют токены. Пустые строки внутри заголовка и `m` строк
-рёбер запрещены; после рёбер разрешены пустые и пробельные строки.
-Последний перевод строки необязателен. Лишний непустой ввод отклоняется.
+All three values are `int` values. A weight can be zero, negative, or any other
+value from `-2147483648` to `2147483647`. Self-loops and parallel edges are
+allowed. Spaces and tabs separate tokens. Blank lines in the header or among the
+`m` edge lines are not allowed; blank or whitespace-only lines after the edges
+are allowed. A final newline is optional. Any extra non-empty input is rejected.
 
-Для `undirected` каждая строка создаёт две записи: `Edge(from, to, weight)` и
-`Edge(to, from, weight)`. Всего в списках будет `2m` записей; петля тоже хранится
-дважды. Для `directed` одна строка создаёт одну запись.
+For `undirected`, each line creates two records: `Edge(from, to, weight)` and
+`Edge(to, from, weight)`. The adjacency lists contain `2m` records in total; a
+self-loop is also stored twice. For `directed`, each line creates one record.
 
-Примеры:
+Examples:
 
-| Файл | Содержание |
+| File | Contents |
 | --- | --- |
-| `data/directed_acyclic.txt` | DAG: 5 вершин, 5 рёбер; все рёбра идут от меньшего номера к большему, есть веса `0` и `-2`. |
-| `data/directed_cycle.txt` | 3 вершины, 5 рёбер: цикл `0 → 1 → 2 → 0`, петля `1 → 1`, два ребра `0 → 1` с весами `2` и `5`. |
-| `data/disconnected_undirected.txt` | 6 вершин, 3 логических ребра: компоненты `{0, 1, 2}`, `{3, 4}` и изолированная вершина `5`; есть веса `-3` и `0`. |
+| `data/directed_acyclic.txt` | A DAG with 5 vertices and 5 edges; every edge goes from a lower-numbered vertex to a higher-numbered one, and the weights include `0` and `-2`. |
+| `data/directed_cycle.txt` | 3 vertices and 5 edges: cycle `0 → 1 → 2 → 0`, self-loop `1 → 1`, and two edges `0 → 1` with weights `2` and `5`. |
+| `data/disconnected_undirected.txt` | 6 vertices and 3 logical edges: components `{0, 1, 2}`, `{3, 4}`, and isolated vertex `5`; the weights include `-3` and `0`. |
 
-## Хранение и API
+## Storage and API
 
-`Edge` содержит открытые поля `public final int from`, `to`, `weight`.
-Конструктор задаёт их один раз: после создания значения ребра нельзя изменить.
+`Edge` has the public fields `public final int from`, `to`, and `weight`. Its
+constructor sets them once, so an edge's values cannot be changed after creation.
 
-`Graph(int n, boolean directed)` создаёт `List<List<Edge>>`: отдельный список
-исходящих рёбер для каждой вершины, включая изолированные. Порядок добавления
-сохраняется.
+`Graph(int n, boolean directed)` creates a `List<List<Edge>>` with a separate
+outgoing-edge list for every vertex, including isolated vertices. Insertion
+order is preserved.
 
-| Метод | Назначение |
+| Method | Purpose |
 | --- | --- |
-| `vertexCount()` | Число вершин. |
-| `isDirected()` | Признак ориентированного графа. |
-| `addEdge(from, to, weight)` | Добавить ребро и, для неориентированного графа, обратную запись. |
-| `neighbors(vertex)` | Получить список исходящих рёбер только для чтения. |
-| `hasEdge(from, to)` | Проверить наличие хотя бы одного ребра с этими концами. |
+| `vertexCount()` | Returns the number of vertices. |
+| `isDirected()` | Returns whether the graph is directed. |
+| `addEdge(from, to, weight)` | Adds an edge and, for an undirected graph, its reverse record. |
+| `neighbors(vertex)` | Returns a read-only list of outgoing edges. |
+| `hasEdge(from, to)` | Checks whether at least one edge has these endpoints. |
 
-`neighbors` возвращает представление списка: последующие добавления видны,
-но добавлять, удалять или заменять элементы через него нельзя.
-Отрицательное `n` вызывает `IllegalArgumentException`; неверный номер вершины
-в методах графа — `IndexOutOfBoundsException`. `addEdge` проверяет оба конца
-до изменения списков.
+`neighbors` returns a view of the list: later additions are visible, but elements
+cannot be added, removed, or replaced through the view. A negative `n` causes
+`IllegalArgumentException`; an invalid vertex index in graph methods causes
+`IndexOutOfBoundsException`. `addEdge` validates both endpoints before changing
+the lists.
 
-Пример Java, запуск из корня проекта. Печатает число вершин `5`, наличие ребра
-`true` и исходящие рёбра вершины `0`:
+Java example, run from the project root. It prints the vertex count `5`, whether
+an edge exists (`true`), and the outgoing edges of vertex `0`:
 
 ```java
 import graph.Edge;
@@ -111,42 +112,44 @@ public class GraphExample {
 }
 ```
 
-`GraphReader.read(Path)` закрывает файл автоматически. Некорректный формат,
-нехватка строк, неверные вершины или выход числа за диапазон `int` приводят
-к `IOException` с номером строки. Ошибки доступа к файлу также передаются как
-ошибки ввода-вывода.
+`GraphReader.read(Path)` closes the file automatically. Invalid format, missing
+lines, invalid vertices, or values outside the `int` range result in an
+`IOException` that includes the line number. File access errors are also
+propagated as I/O errors.
 
-Конструктор графа работает за `O(n)`, `addEdge` — амортизированно за `O(1)`,
-`hasEdge` — за `O(outdegree(from))`, то есть по длине исходящего списка.
-Память — `O(n + m)`; удвоение записей в неориентированном графе не меняет оценку.
+The graph constructor takes `O(n)` time, `addEdge` takes amortized `O(1)`, and
+`hasEdge` takes `O(outdegree(from))`, which is the length of the source's outgoing
+list. Space usage is `O(n + m)`; doubling the records in an undirected graph does
+not change the asymptotic bound.
 
 ## DSU
 
-`DSU(int n)` создаёт `n` отдельных множеств для элементов от `0` до `n - 1`.
-Массив `parent` хранит родителей, `size` — размеры деревьев у корней.
-`union` присоединяет меньшее дерево к большему. `find` сначала итеративно ищет
-корень, затем вторым проходом направляет все элементы пройденного пути прямо
-к корню: это полное сжатие пути без рекурсии.
+`DSU(int n)` creates `n` separate sets for elements from `0` to `n - 1`. The
+`parent` array stores parents, and `size` stores the sizes of the trees at their
+roots. `union` attaches the smaller tree to the larger one. `find` iteratively
+searches for the root, then makes a second pass to point each element on the
+traversed path directly to the root: full path compression without recursion.
 
-| Метод | Назначение |
+| Method | Purpose |
 | --- | --- |
-| `makeSet(n)` | Заново создать `n` отдельных множеств, сбросить оба счётчика. |
-| `find(x)` | Вернуть представителя множества элемента `x` и сжать путь. |
-| `union(x, y)` | Вернуть `true` при слиянии разных множеств, иначе `false`. |
-| `components()` | Число текущих множеств. |
-| `findCalls()` | Число корректных вызовов `find`, включая вызовы внутри `union`. |
-| `successfulUnions()` | Число фактических слияний разных множеств. |
-| `dsuOps()` | Сумма `findCalls()` и `successfulUnions()`. |
+| `makeSet(n)` | Creates `n` separate sets again and resets both counters. |
+| `find(x)` | Returns the representative of the set containing `x` and compresses the path. |
+| `union(x, y)` | Returns `true` when two different sets are merged; otherwise returns `false`. |
+| `components()` | Returns the current number of sets. |
+| `findCalls()` | Returns the number of valid `find` calls, including calls made inside `union`. |
+| `successfulUnions()` | Returns the number of actual merges of different sets. |
+| `dsuOps()` | Returns the sum of `findCalls()` and `successfulUnions()`. |
 
-Каждый корректный `union` вызывает `find` дважды, включая повторное объединение
-и `union(x, x)`. Только фактическое слияние увеличивает `successfulUnions` и
-уменьшает `components`. Чтение счётчиков и числа компонент их не изменяет.
-`makeSet` допускает `0` и изменение размера. Отрицательный размер вызывает
-`IllegalArgumentException`, неверный элемент — `IndexOutOfBoundsException`.
-Оба аргумента `union` проверяются до поиска: некорректные операции не меняют
-состояние и счётчики; отрицательный размер не сбрасывает существующую DSU.
+Every valid `union` calls `find` twice, including repeated unions and
+`union(x, x)`. Only an actual merge increments `successfulUnions` and decreases
+`components`. Reading the counters or the number of components does not change
+them. `makeSet` accepts `0` and can change the size. A negative size causes
+`IllegalArgumentException`; an invalid element causes `IndexOutOfBoundsException`.
+Both arguments to `union` are validated before searching: invalid operations do
+not change the state or counters, and a negative size does not reset the existing
+DSU.
 
-Пример печатает `true`, `false`, `3`, `4`, `1`, `5`:
+This example prints `true`, `false`, `3`, `4`, `1`, and `5`:
 
 ```java
 import algorithms.DSU;
@@ -164,85 +167,85 @@ public class DSUExample {
 }
 ```
 
-Инициализация и `makeSet` занимают `O(n)` времени; память DSU — `O(n)`.
-С объединением по размеру и сжатием пути `find` и `union` работают
-амортизированно за `O(α(n))`, где `α` — обратная функция Аккермана.
-Тесты сравнивают случайные объединения (`Random(42)`) с независимой моделью
-меток, проверяют счётчики и сжатие пути, а также работу на 100000 элементах.
+Initialization and `makeSet` take `O(n)` time; DSU uses `O(n)` space. With
+union by size and path compression, `find` and `union` take amortized
+`O(α(n))`, where `α` is the inverse Ackermann function. Tests compare random
+unions (`Random(42)`) against an independent label-based model, check counters
+and path compression, and also exercise 100000 elements.
 
-## Минимальное остовное дерево
+## Minimum spanning tree
 
-`algorithms.MST.kruskal(graph)` и `algorithms.MST.prim(graph)` строят минимальный
-остовный лес для неориентированного графа. Для связного графа результат является
-деревом; для несвязного — лесом с отдельным деревом для каждой компоненты,
-включая изолированные вершины. Ориентированный граф вызывает
-`IllegalArgumentException`.
+`algorithms.MST.kruskal(graph)` and `algorithms.MST.prim(graph)` build a minimum
+spanning forest for an undirected graph. For a connected graph, the result is a
+tree; for a disconnected graph, it is a forest with one tree per component,
+including isolated vertices. A directed graph causes `IllegalArgumentException`.
 
-Оба метода возвращают `MST.Result`: `edges()` — неизменяемый список выбранных
-рёбер, `totalWeight()` — суммарный вес типа `long`, `components()` — число
-компонент в результате. `metrics()` возвращает общую запись `AlgorithmMetrics`
-с полями `dsuOps`, `edgeScans`, `comparisons`, `maxDepth`. Для Краскала
-`edgeScans` — число логических рёбер, обработанных циклом (включая рёбра,
-отклонённые как образующие цикл), `comparisons` — вызовы компаратора сортировки,
-`dsuOps` — счётчик DSU, `maxDepth` — `0`. Для Прима `edgeScans` считает снятия
-кандидатов из очереди приоритетов, включая устаревшие записи уже посещённых
-вершин; `comparisons` — вызовы компаратора очереди, `dsuOps` и `maxDepth` равны
-`0`. Краскал сортирует рёбра за `O(m log m)` и использует
-DSU за амортизированное `O(m α(n))`; Прим использует очередь приоритетов за
-`O((n + m) log m)`. Оба алгоритма занимают `O(n + m)` памяти.
+Both methods return `MST.Result`: `edges()` is an immutable list of selected
+edges, `totalWeight()` is the total weight of type `long`, and `components()` is
+the number of components in the result. `metrics()` returns a shared
+`AlgorithmMetrics` record with the fields `dsuOps`, `edgeScans`, `comparisons`,
+and `maxDepth`. For Kruskal, `edgeScans` is the number of logical edges processed
+by the loop, including edges rejected because they form a cycle; `comparisons` is
+the number of sorting comparator calls, `dsuOps` is the DSU counter, and
+`maxDepth` is `0`. For Prim, `edgeScans` counts candidate removals from the
+priority queue, including stale entries for already visited vertices;
+`comparisons` is the number of queue comparator calls, and `dsuOps` and `maxDepth`
+are `0`. Kruskal sorts edges in `O(m log m)` time and uses DSU in amortized
+`O(m α(n))` time; Prim uses a priority queue in `O((n + m) log(n + m))` time. Both
+algorithms use `O(n + m)` space.
 
-## Компоненты сильной связности и топологическая сортировка
+## Strongly connected components and topological sorting
 
-`algorithms.SCC.kosaraju(graph)` применяет алгоритм Косарайю к ориентированному
-графу. Оба прохода DFS итеративны, поэтому длинные пути не требуют глубокой
-рекурсии. `SCC.Result.components()` возвращает неизменяемый список компонент,
-`count()` — их число, `edgeScans()` — число просмотренных записей рёбер в двух
-DFS-проходах, а `maxDepth()` — максимальный размер явного стека обхода.
-`metrics()` сохраняет эти счётчики в общей записи: `edgeScans` — два DFS-прохода
-(ровно `2m`), `maxDepth` — максимальный явный стек, остальные поля равны `0`.
-Построение обратного графа в `edgeScans` не включается. Время и память — `O(n + m)`.
+`algorithms.SCC.kosaraju(graph)` applies Kosaraju's algorithm to a directed
+graph. Both DFS passes are iterative, so long paths do not require deep
+recursion. `SCC.Result.components()` returns an immutable list of components,
+`count()` returns their number, `edgeScans()` returns the number of edge records
+examined in both DFS passes, and `maxDepth()` returns the maximum size of the
+explicit traversal stack. `metrics()` stores these counters in the shared record:
+`edgeScans` covers both DFS passes (exactly `2m`), `maxDepth` is the maximum
+explicit stack size, and the other fields are `0`. Building the reverse graph is
+not included in `edgeScans`. Time and space are `O(n + m)`.
 
-`algorithms.TopologicalSort.kahn(graph)` возвращает порядок вершин DAG в
-`TopologicalSort.Result.order()`. Параллельные рёбра учитываются отдельно;
-если граф содержит цикл, в том числе петлю, метод выбрасывает
-`IllegalArgumentException`. `edgeScans()` считает просмотры исходящих рёбер
-при обработке очереди (ровно `m` для DAG); начальный проход для подсчёта
-входящих степеней в этот счётчик не входит. `metrics()` также доступен; для
-Kahn `comparisons`, `dsuOps` и `maxDepth` равны `0`. Оба алгоритма отклоняют null и
-неориентированные графы через `IllegalArgumentException`.
+`algorithms.TopologicalSort.kahn(graph)` returns a topological ordering of a DAG
+in `TopologicalSort.Result.order()`. Parallel edges are counted separately. If
+the graph contains a cycle, including a self-loop, the method throws
+`IllegalArgumentException`. `edgeScans()` counts outgoing edges examined while
+processing the queue (exactly `m` for a DAG); the initial pass that counts
+indegrees is not included. `metrics()` is also available; for Kahn,
+`comparisons`, `dsuOps`, and `maxDepth` are `0`. Both algorithms reject null and
+undirected graphs with `IllegalArgumentException`.
 
-`algorithms.DagShortestPath.shortestPaths(graph)` вычисляет кратчайшие пути в
-DAG за `O(V + E)`: после топологической сортировки исходящие рёбра каждой
-вершины расслабляются один раз. Каждая вершина с нулевой входящей степенью
-служит источником с расстоянием `0`, что эквивалентно виртуальному суперисточнику
-и позволяет обрабатывать несвязные графы. Допускаются отрицательные веса.
-`DagShortestPath.Result` возвращает массивы `distances()` и `parents()` с
-защитным копированием, сумму расстояний `totalDistance()`, число расслаблений
-`edgeScans()` (ровно `m`) и неизменяемый восстановленный путь `pathTo(target)`.
-`metrics().comparisons()` считает проверки кандидата расстояния для каждого
-расслабляемого ребра; построение входящих степеней и вызов топологической
-сортировки в `edgeScans` и `comparisons` не добавляются. `dsuOps` и `maxDepth`
-равны `0`.
-Расстояния и сумма имеют тип `long`; null, неориентированные и циклические графы
-отклоняются через `IllegalArgumentException`.
+`algorithms.DagShortestPath.shortestPaths(graph)` computes shortest paths in a
+DAG in `O(V + E)`: after topological sorting, each vertex's outgoing edges are
+relaxed once. Every vertex with indegree zero serves as a source with distance
+`0`, which is equivalent to a virtual super-source and allows disconnected
+graphs to be processed. Negative weights are allowed. `DagShortestPath.Result`
+returns defensively copied `distances()` and `parents()` arrays, the sum of
+distances `totalDistance()`, the number of relaxations `edgeScans()` (exactly
+`m`), and an immutable reconstructed path `pathTo(target)`.
+`metrics().comparisons()` counts distance-candidate checks for every relaxed
+edge; building indegrees and calling the topological sort are not added to
+`edgeScans` or `comparisons`. `dsuOps` and `maxDepth` are `0`.
+Distances and their sum have type `long`; null, undirected, and cyclic graphs are
+rejected with `IllegalArgumentException`.
 
-## Бенчмарк и счётчики
+## Benchmark and counters
 
-`algorithms.AlgorithmMetrics` — общий неизменяемый тип счётчиков всех пяти
-результатов. `comparisons` означает фактические вызовы компаратора весов у
-Краскала/Прима и фактические сравнения кандидата расстояния у DAG-путей;
-вершины, готовые для Кана, не сравниваются. `maxDepth` ненулевой только у
-Косарайю, где используется явный стек.
+`algorithms.AlgorithmMetrics` is the shared immutable counter type for all five
+result types. `comparisons` means actual weight-comparator calls for Kruskal and
+Prim, and actual distance-candidate comparisons for DAG shortest paths; vertices
+ready for Kahn's algorithm are not compared. `maxDepth` is nonzero only for
+Kosaraju, which uses an explicit stack.
 
-`benchmark.Benchmark` строит десять seeded графов каждого семейства, проверяет
-веса MST, порядок Kahn, точные reference значения и счётчики сканирований, и
-лишь затем записывает `results/results.csv`. Таблица содержит 50 строк.
-Замена файла выполняется атомарным перемещением временного файла; если файловая
-система не поддерживает `ATOMIC_MOVE`, ошибка передаётся вызывающему коду, а
-предыдущий CSV остаётся на месте.
+`benchmark.Benchmark` builds ten seeded graphs for each family, checks MST
+weights, Kahn orderings, exact reference values, and edge-scan counts, and only
+then writes `results/results.csv`. The table contains 50 rows. The file is
+replaced by an atomic move of a temporary file; if the file system does not
+support `ATOMIC_MOVE`, the error is propagated and the previous CSV remains in
+place.
 
-## Использование AI
+## Use of AI
 
-Код, тесты и документация подготовлены с помощью OpenAI Codex. Это указание
-источника помощи не заменяет самостоятельную проверку и объяснение решения
-студентом.
+The code, tests, and documentation were prepared with the help of OpenAI Codex.
+This attribution identifies the source of assistance; it does not replace the
+student's own review and explanation of the solution.

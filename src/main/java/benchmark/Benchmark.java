@@ -20,7 +20,6 @@ import java.util.UUID;
 import java.util.function.Function;
 import java.util.function.ToLongFunction;
 
-/** Runs and verifies the assignment's seeded algorithm benchmark. */
 public final class Benchmark {
     private static final int[] SIZES = {1_000, 3_162, 10_000, 31_623, 100_000};
     private static final int RUNS = 5;
@@ -44,7 +43,6 @@ public final class Benchmark {
         writeCsv(output, rows);
     }
 
-    /** Runs all algorithms and completes every self-check before returning any rows. */
     public static List<Row> run() {
         List<Row> rows = new ArrayList<>(50);
         long[] mstReferences = new long[10];
@@ -90,7 +88,6 @@ public final class Benchmark {
         return List.copyOf(rows);
     }
 
-    /** Writes the validated 50-row table via a same-directory atomic replacement. */
     public static void writeCsv(Path target, List<Row> rows) throws IOException {
         writeCsv(target, rows, (source, destination) -> Files.move(source, destination,
                 StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING));

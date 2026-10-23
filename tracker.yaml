@@ -114,3 +114,19 @@ tasks:
   - id: remaining-assignment-verification
     status: done
     evidence: Independent report re-review passed; regenerated and parsed all 3 SVGs (10/10/2 series, 1200x800); CSV has 50 data rows; git diff --check passed; mvn -B clean verify passed 62 tests with 0 failures/errors/skips and built the JAR. Report artifacts committed as 267fefa; tracker will be committed separately.
+
+  - id: readme-english
+    status: done
+    evidence: README translated to English; agent confirmed no Cyrillic remains and git diff --check passes. Structure, commands, examples, metrics, and AI-assistance attribution preserved.
+  - id: remove-source-comments
+    status: done
+    evidence: Removed comments/Javadocs in 7 main Java files and one test file; Python had no comments, and its required shebang was preserved. Agent ran scoped git diff --check.
+  - id: final-review
+    status: done
+    evidence: Independent reviewer confirmed full English translation and comment-only Java diff; found one Prim complexity bound issue for m=0, now being corrected.
+  - id: review-fix
+    status: done
+    evidence: Updated Prim bound to O((n + m) log(n + m)); independent reviewer confirmed it covers queue entries, component roots, and edgeless graphs.
+  - id: final-verification
+    status: done
+    evidence: mvn -B clean verify passed 62 tests with 0 failures/errors/skips and built the JAR; git diff --check passed; README contains no Cyrillic; independent review confirmed only comments were removed from Java and verified the Prim bound.

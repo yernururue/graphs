@@ -6,11 +6,9 @@ import graph.Graph;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Strongly connected components using iterative Kosaraju passes. */
 public final class SCC {
     private SCC() { }
 
-    /** Immutable summary of a Kosaraju computation. */
     public static final class Result {
         private final List<List<Integer>> components;
         private final long edgeScans;
@@ -33,7 +31,6 @@ public final class SCC {
         public AlgorithmMetrics metrics() { return metrics; }
     }
 
-    /** Finds the strongly connected components in an oriented graph. */
     public static Result kosaraju(Graph graph) {
         requireDirected(graph);
         int n = graph.vertexCount();
