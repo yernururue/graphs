@@ -74,7 +74,7 @@ class SCCAndTopologicalSortTest {
 
         assertEquals(5, result.order().size());
         assertEveryEdgePointsForward(dag, result.order());
-        assertEquals(12, result.edgeScans());
+        assertEquals(6, result.edgeScans());
         assertThrows(UnsupportedOperationException.class, () -> result.order().clear());
     }
 

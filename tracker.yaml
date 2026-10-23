@@ -76,11 +76,17 @@ tasks:
     status: done
     evidence: Integrator ran mvn -B clean verify after the 2m counter fix: 49 tests passed, jar built. Commit 7f88e5c; original user staging preserved.
   - id: dag-paths-implementation
-    status: in_progress
-    evidence: Starting DAG shortest paths using Kahn order and all-indegree-zero virtual-source initialization; compare against Bellman-Ford.
+    status: done
+    evidence: Implementer added DAG shortest paths with virtual-source initialization, parent path restoration, negative-weight Bellman-Ford cross-checks, and README; focused 3/3, full suite 52/52 passed.
   - id: dag-paths-review
-    status: pending
-    evidence: Awaiting independent review.
+    status: done
+    evidence: Independent review approved virtual-source initialization, one relaxation pass, negative weights, restored paths, exact m relaxation count, and cycle validation. Minor theoretical total long overflow is outside assignment benchmark bounds.
+  - id: kahn-counter-fix
+    status: done
+    evidence: RED showed Kahn counter expected m (6) vs prior 2m (12); removed initialization increment, test/README/report now use m; focused 7/7 and full suite 52/52 passed.
+  - id: dag-paths-verification
+    status: in_progress
+    evidence: Integrator is committing Kahn metric fix and DAG shortest paths, then will run clean verification.
   - id: metrics-benchmark-implementation
     status: pending
     evidence: Awaiting counters, seeded generator, benchmark, and self-checks.

@@ -35,7 +35,6 @@ public final class TopologicalSort {
         for (int from = 0; from < n; from++) {
             for (Edge edge : graph.neighbors(from)) {
                 indegree[edge.to]++;
-                edgeScans++;
             }
         }
 
