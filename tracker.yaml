@@ -100,14 +100,17 @@ tasks:
     status: done
     evidence: Independent re-review approved permutation validation, fail-closed atomic CSV replacement, injected preservation test, and documented counters; no findings remain.
   - id: metrics-benchmark-verification
-    status: in_progress
-    evidence: Integrator is creating scoped metrics/benchmark commits and will run clean verification.
+    status: done
+    evidence: Integrator ran mvn -B clean verify: 62 tests passed, jar built; git diff check passed; 51-line CSV committed with exact reference values. Commits bb98f25, ff13186, c4238bd.
   - id: report-implementation
-    status: pending
-    evidence: Awaiting benchmark evidence and report/plots.
+    status: done
+    evidence: Implementer added ~1740-word report, plotting source, and exactly three SVGs; ratios/slopes computed from CSV and XML validation passed. Screenshot visual QA unavailable and documented.
   - id: report-review
-    status: pending
-    evidence: Awaiting independent report review.
+    status: done
+    evidence: Independent reviewer approved complexity/proof/plots and all slopes/ratios except one rounded table value: sparse Kruskal at n=1000 is 2.749, not 2.750.
+  - id: report-review-fix
+    status: done
+    evidence: Corrected first sparse Kruskal DSU/E value to 2.749 (10,997/4,000); independent re-review confirmed table arithmetic and remaining rows.
   - id: remaining-assignment-verification
-    status: pending
-    evidence: Awaiting full verification and commits.
+    status: done
+    evidence: Independent report re-review passed; regenerated and parsed all 3 SVGs (10/10/2 series, 1200x800); CSV has 50 data rows; git diff --check passed; mvn -B clean verify passed 62 tests with 0 failures/errors/skips and built the JAR. Report artifacts committed as 267fefa; tracker will be committed separately.
