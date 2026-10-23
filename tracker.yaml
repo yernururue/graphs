@@ -61,11 +61,17 @@ tasks:
     status: in_progress
     evidence: Read PDF sections 4–10 and created feature/scc plus the remaining assignment plan.
   - id: scc-topo-implementation
-    status: pending
-    evidence: Awaiting iterative Kosaraju, Kahn, and tests.
+    status: done
+    evidence: Implementer added iterative Kosaraju/Kahn, brute-force random SCC tests, 100000-vertex stack test, and README; focused tests 7/7 and full suite 49/49 passed.
   - id: scc-topo-review
-    status: pending
-    evidence: Awaiting independent review.
+    status: done
+    evidence: Independent reviewer found edgeScans counted reverse-graph construction, conflicting with the assignment reference of exactly 2m DFS edge scans.
+  - id: scc-topo-review-fix
+    status: done
+    evidence: Changed SCC.edgeScans to count only the two DFS passes; RED showed 2m expected vs 3m actual, then focused 7/7 and full suite 49/49 passed. README/report updated.
+  - id: scc-topo-rereview
+    status: done
+    evidence: Independent re-review verified edgeScans counts both DFS passes (2m), reverse build is excluded, test and README agree; no findings remain.
   - id: dag-paths-implementation
     status: pending
     evidence: Awaiting DAG shortest paths and Bellman-Ford comparison tests.
