@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#202a35}.grid{stroke:#dce2e8;stroke-width:1}.axis{stroke:#536170;stroke-width:1.2}</style>
+<text x="600.0" y="34" text-anchor="middle" font-size="23" font-weight="600">Measured operation counters vs. vertices</text>
+<line class="grid" x1="104.0" y1="76" x2="104.0" y2="570"/>
+<text x="104.0" y="593" text-anchor="middle" font-size="13">10^3</text>
+<line class="grid" x1="614.5" y1="76" x2="614.5" y2="570"/>
+<text x="614.5" y="593" text-anchor="middle" font-size="13">10^4</text>
+<line class="grid" x1="1125.0" y1="76" x2="1125.0" y2="570"/>
+<text x="1125.0" y="593" text-anchor="middle" font-size="13">10^5</text>
+<line class="grid" x1="104" y1="570.0" x2="1125" y2="570.0"/>
+<text x="92" y="574.0" text-anchor="end" font-size="13">10^3</text>
+<line class="grid" x1="104" y1="487.7" x2="1125" y2="487.7"/>
+<text x="92" y="491.7" text-anchor="end" font-size="13">10^4</text>
+<line class="grid" x1="104" y1="405.3" x2="1125" y2="405.3"/>
+<text x="92" y="409.3" text-anchor="end" font-size="13">10^5</text>
+<line class="grid" x1="104" y1="323.0" x2="1125" y2="323.0"/>
+<text x="92" y="327.0" text-anchor="end" font-size="13">10^6</text>
+<line class="grid" x1="104" y1="240.7" x2="1125" y2="240.7"/>
+<text x="92" y="244.7" text-anchor="end" font-size="13">10^7</text>
+<line class="grid" x1="104" y1="158.3" x2="1125" y2="158.3"/>
+<text x="92" y="162.3" text-anchor="end" font-size="13">10^8</text>
+<line class="grid" x1="104" y1="76.0" x2="1125" y2="76.0"/>
+<text x="92" y="80.0" text-anchor="end" font-size="13">10^9</text>
+<line class="axis" x1="104" y1="570" x2="1125" y2="570"/>
+<line class="axis" x1="104" y1="76" x2="104" y2="570"/>
+<text x="614.5" y="622" text-anchor="middle" font-size="16">Vertices n (log scale)</text>
+<text x="25" y="323.0" text-anchor="middle" font-size="16" transform="rotate(-90 25 323.0)">Algorithm-specific counter sum (log scale)</text>
+<polyline points="104.0,425.0 359.2,379.9 614.5,336.5 869.8,294.6 1125.0,253.2" fill="none" stroke="#2457a7" stroke-width="2.2"/>
+<circle cx="104.0" cy="425.0" r="4" fill="#2457a7" />
+<circle cx="359.2" cy="379.9" r="4" fill="#2457a7" />
+<circle cx="614.5" cy="336.5" r="4" fill="#2457a7" />
+<circle cx="869.8" cy="294.6" r="4" fill="#2457a7" />
+<circle cx="1125.0" cy="253.2" r="4" fill="#2457a7" />
+<polyline points="104.0,380.7 359.2,335.0 614.5,289.4 869.8,244.5 1125.0,200.2" fill="none" stroke="#d04a35" stroke-width="2.2"/>
+<rect x="100.5" y="377.2" width="7" height="7" fill="#d04a35" />
+<rect x="355.7" y="331.5" width="7" height="7" fill="#d04a35" />
+<rect x="611.0" y="285.9" width="7" height="7" fill="#d04a35" />
+<rect x="866.3" y="241.0" width="7" height="7" fill="#d04a35" />
+<rect x="1121.5" y="196.7" width="7" height="7" fill="#d04a35" />
+<polyline points="104.0,495.6 359.2,454.5 614.5,413.3 869.8,372.1 1125.0,331.0" fill="none" stroke="#16835d" stroke-width="2.2"/>
+<path d="M104.0,491.6 L108.0,495.6 L104.0,499.6 L100.0,495.6 Z" fill="#16835d" />
+<path d="M359.2,450.5 L363.2,454.5 L359.2,458.5 L355.2,454.5 Z" fill="#16835d" />
+<path d="M614.5,409.3 L618.5,413.3 L614.5,417.3 L610.5,413.3 Z" fill="#16835d" />
+<path d="M869.8,368.1 L873.8,372.1 L869.8,376.1 L865.8,372.1 Z" fill="#16835d" />
+<path d="M1125.0,327.0 L1129.0,331.0 L1125.0,335.0 L1121.0,331.0 Z" fill="#16835d" />
+<polyline points="104.0,520.4 359.2,479.3 614.5,438.1 869.8,396.9 1125.0,355.8" fill="none" stroke="#8b55a1" stroke-width="2.2"/>
+<path d="M104.0,516.4 L108.0,523.9 L100.0,523.9 Z" fill="#8b55a1" />
+<path d="M359.2,475.3 L363.2,482.8 L355.2,482.8 Z" fill="#8b55a1" />
+<path d="M614.5,434.1 L618.5,441.6 L610.5,441.6 Z" fill="#8b55a1" />
+<path d="M869.8,392.9 L873.8,400.4 L865.8,400.4 Z" fill="#8b55a1" />
+<path d="M1125.0,351.8 L1129.0,359.3 L1121.0,359.3 Z" fill="#8b55a1" />
+<polyline points="104.0,495.6 359.2,454.5 614.5,413.3 869.8,372.1 1125.0,331.0" fill="none" stroke="#c07800" stroke-width="2.2"/>
+<path d="M101.0,492.6 L107.0,498.6 M101.0,498.6 L107.0,492.6" stroke="#c07800" stroke-width="1.7" />
+<path d="M356.2,451.5 L362.2,457.5 M356.2,457.5 L362.2,451.5" stroke="#c07800" stroke-width="1.7" />
+<path d="M611.5,410.3 L617.5,416.3 M611.5,416.3 L617.5,410.3" stroke="#c07800" stroke-width="1.7" />
+<path d="M866.8,369.1 L872.8,375.1 M866.8,375.1 L872.8,369.1" stroke="#c07800" stroke-width="1.7" />
+<path d="M1122.0,328.0 L1128.0,334.0 M1122.0,334.0 L1128.0,328.0" stroke="#c07800" stroke-width="1.7" />
+<polyline points="104.0,363.4 359.2,321.1 614.5,279.3 869.8,238.0 1125.0,196.7" fill="none" stroke="#2457a7" stroke-width="2.2"/>
+<circle cx="104.0" cy="363.4" r="4" fill="#2457a7" />
+<circle cx="359.2" cy="321.1" r="4" fill="#2457a7" />
+<circle cx="614.5" cy="279.3" r="4" fill="#2457a7" />
+<circle cx="869.8" cy="238.0" r="4" fill="#2457a7" />
+<circle cx="1125.0" cy="196.7" r="4" fill="#2457a7" />
+<polyline points="104.0,317.6 359.2,272.5 614.5,227.8 869.8,183.5 1125.0,139.3" fill="none" stroke="#d04a35" stroke-width="2.2"/>
+<rect x="100.5" y="314.1" width="7" height="7" fill="#d04a35" />
+<rect x="355.7" y="269.0" width="7" height="7" fill="#d04a35" />
+<rect x="611.0" y="224.3" width="7" height="7" fill="#d04a35" />
+<rect x="866.3" y="180.0" width="7" height="7" fill="#d04a35" />
+<rect x="1121.5" y="135.8" width="7" height="7" fill="#d04a35" />
+<polyline points="104.0,438.1 359.2,396.9 614.5,355.8 869.8,314.6 1125.0,273.4" fill="none" stroke="#16835d" stroke-width="2.2"/>
+<path d="M104.0,434.1 L108.0,438.1 L104.0,442.1 L100.0,438.1 Z" fill="#16835d" />
+<path d="M359.2,392.9 L363.2,396.9 L359.2,400.9 L355.2,396.9 Z" fill="#16835d" />
+<path d="M614.5,351.8 L618.5,355.8 L614.5,359.8 L610.5,355.8 Z" fill="#16835d" />
+<path d="M869.8,310.6 L873.8,314.6 L869.8,318.6 L865.8,314.6 Z" fill="#16835d" />
+<path d="M1125.0,269.4 L1129.0,273.4 L1125.0,277.4 L1121.0,273.4 Z" fill="#16835d" />
+<polyline points="104.0,462.9 359.2,421.7 614.5,380.5 869.8,339.4 1125.0,298.2" fill="none" stroke="#8b55a1" stroke-width="2.2"/>
+<path d="M104.0,458.9 L108.0,466.4 L100.0,466.4 Z" fill="#8b55a1" />
+<path d="M359.2,417.7 L363.2,425.2 L355.2,425.2 Z" fill="#8b55a1" />
+<path d="M614.5,376.5 L618.5,384.0 L610.5,384.0 Z" fill="#8b55a1" />
+<path d="M869.8,335.4 L873.8,342.9 L865.8,342.9 Z" fill="#8b55a1" />
+<path d="M1125.0,294.2 L1129.0,301.7 L1121.0,301.7 Z" fill="#8b55a1" />
+<polyline points="104.0,438.1 359.2,396.9 614.5,355.8 869.8,314.6 1125.0,273.4" fill="none" stroke="#c07800" stroke-width="2.2"/>
+<path d="M101.0,435.1 L107.0,441.1 M101.0,441.1 L107.0,435.1" stroke="#c07800" stroke-width="1.7" />
+<path d="M356.2,393.9 L362.2,399.9 M356.2,399.9 L362.2,393.9" stroke="#c07800" stroke-width="1.7" />
+<path d="M611.5,352.8 L617.5,358.8 M611.5,358.8 L617.5,352.8" stroke="#c07800" stroke-width="1.7" />
+<path d="M866.8,311.6 L872.8,317.6 M866.8,317.6 L872.8,311.6" stroke="#c07800" stroke-width="1.7" />
+<path d="M1122.0,270.4 L1128.0,276.4 M1122.0,276.4 L1128.0,270.4" stroke="#c07800" stroke-width="1.7" />
+<line x1="104.0" y1="661" x2="131.0" y2="661" stroke="#2457a7" stroke-width="2.2"/>
+<circle cx="117.5" cy="661.0" r="4" fill="#2457a7" />
+<text x="139.0" y="666" font-size="13">Kruskal (sparse)</text>
+<line x1="104.0" y1="685" x2="131.0" y2="685" stroke="#d04a35" stroke-width="2.2"/>
+<rect x="114.0" y="681.5" width="7" height="7" fill="#d04a35" />
+<text x="139.0" y="690" font-size="13">Prim (sparse)</text>
+<line x1="104.0" y1="709" x2="131.0" y2="709" stroke="#16835d" stroke-width="2.2"/>
+<path d="M117.5,705.0 L121.5,709.0 L117.5,713.0 L113.5,709.0 Z" fill="#16835d" />
+<text x="139.0" y="714" font-size="13">Kosaraju (sparse)</text>
+<line x1="104.0" y1="733" x2="131.0" y2="733" stroke="#8b55a1" stroke-width="2.2"/>
+<path d="M117.5,729.0 L121.5,736.5 L113.5,736.5 Z" fill="#8b55a1" />
+<text x="139.0" y="738" font-size="13">Kahn (sparse)</text>
+<line x1="104.0" y1="757" x2="131.0" y2="757" stroke="#c07800" stroke-width="2.2"/>
+<path d="M114.5,754.0 L120.5,760.0 M114.5,760.0 L120.5,754.0" stroke="#c07800" stroke-width="1.7" />
+<text x="139.0" y="762" font-size="13">DAG shortest paths (sparse)</text>
+<line x1="614.5" y1="661" x2="641.5" y2="661" stroke="#2457a7" stroke-width="2.2"/>
+<circle cx="628.0" cy="661.0" r="4" fill="#2457a7" />
+<text x="649.5" y="666" font-size="13">Kruskal (dense)</text>
+<line x1="614.5" y1="685" x2="641.5" y2="685" stroke="#d04a35" stroke-width="2.2"/>
+<rect x="624.5" y="681.5" width="7" height="7" fill="#d04a35" />
+<text x="649.5" y="690" font-size="13">Prim (dense)</text>
+<line x1="614.5" y1="709" x2="641.5" y2="709" stroke="#16835d" stroke-width="2.2"/>
+<path d="M628.0,705.0 L632.0,709.0 L628.0,713.0 L624.0,709.0 Z" fill="#16835d" />
+<text x="649.5" y="714" font-size="13">Kosaraju (dense)</text>
+<line x1="614.5" y1="733" x2="641.5" y2="733" stroke="#8b55a1" stroke-width="2.2"/>
+<path d="M628.0,729.0 L632.0,736.5 L624.0,736.5 Z" fill="#8b55a1" />
+<text x="649.5" y="738" font-size="13">Kahn (dense)</text>
+<line x1="614.5" y1="757" x2="641.5" y2="757" stroke="#c07800" stroke-width="2.2"/>
+<path d="M625.0,754.0 L631.0,760.0 M625.0,760.0 L631.0,754.0" stroke="#c07800" stroke-width="1.7" />
+<text x="649.5" y="762" font-size="13">DAG shortest paths (dense)</text>
+</svg>

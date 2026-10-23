@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<rect width="100%" height="100%" fill="white"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#202a35}.grid{stroke:#dce2e8;stroke-width:1}.axis{stroke:#536170;stroke-width:1.2}</style>
+<text x="600.0" y="34" text-anchor="middle" font-size="23" font-weight="600">Edge scans per input edge</text>
+<line class="grid" x1="104.0" y1="76" x2="104.0" y2="570"/>
+<text x="104.0" y="593" text-anchor="middle" font-size="13">10^3</text>
+<line class="grid" x1="614.5" y1="76" x2="614.5" y2="570"/>
+<text x="614.5" y="593" text-anchor="middle" font-size="13">10^4</text>
+<line class="grid" x1="1125.0" y1="76" x2="1125.0" y2="570"/>
+<text x="1125.0" y="593" text-anchor="middle" font-size="13">10^5</text>
+<line class="grid" x1="104" y1="570.0" x2="1125" y2="570.0"/>
+<text x="92" y="574.0" text-anchor="end" font-size="13">10^0</text>
+<line class="grid" x1="104" y1="76.0" x2="1125" y2="76.0"/>
+<text x="92" y="80.0" text-anchor="end" font-size="13">10^1</text>
+<line class="axis" x1="104" y1="570" x2="1125" y2="570"/>
+<line class="axis" x1="104" y1="76" x2="104" y2="570"/>
+<text x="614.5" y="622" text-anchor="middle" font-size="16">Vertices n (log scale)</text>
+<text x="25" y="323.0" text-anchor="middle" font-size="16" transform="rotate(-90 25 323.0)">edge_scans / m (log scale)</text>
+<polyline points="104.0,570.0 359.2,570.0 614.5,570.0 869.8,570.0 1125.0,570.0" fill="none" stroke="#2457a7" stroke-width="2.2"/>
+<circle cx="104.0" cy="570.0" r="4" fill="#2457a7" />
+<circle cx="359.2" cy="570.0" r="4" fill="#2457a7" />
+<circle cx="614.5" cy="570.0" r="4" fill="#2457a7" />
+<circle cx="869.8" cy="570.0" r="4" fill="#2457a7" />
+<circle cx="1125.0" cy="570.0" r="4" fill="#2457a7" />
+<polyline points="104.0,421.3 359.2,421.3 614.5,421.3 869.8,421.3 1125.0,421.3" fill="none" stroke="#d04a35" stroke-width="2.2"/>
+<rect x="100.5" y="417.8" width="7" height="7" fill="#d04a35" />
+<rect x="355.7" y="417.8" width="7" height="7" fill="#d04a35" />
+<rect x="611.0" y="417.8" width="7" height="7" fill="#d04a35" />
+<rect x="866.3" y="417.8" width="7" height="7" fill="#d04a35" />
+<rect x="1121.5" y="417.8" width="7" height="7" fill="#d04a35" />
+<polyline points="104.0,421.3 359.2,421.3 614.5,421.3 869.8,421.3 1125.0,421.3" fill="none" stroke="#16835d" stroke-width="2.2"/>
+<path d="M104.0,417.3 L108.0,421.3 L104.0,425.3 L100.0,421.3 Z" fill="#16835d" />
+<path d="M359.2,417.3 L363.2,421.3 L359.2,425.3 L355.2,421.3 Z" fill="#16835d" />
+<path d="M614.5,417.3 L618.5,421.3 L614.5,425.3 L610.5,421.3 Z" fill="#16835d" />
+<path d="M869.8,417.3 L873.8,421.3 L869.8,425.3 L865.8,421.3 Z" fill="#16835d" />
+<path d="M1125.0,417.3 L1129.0,421.3 L1125.0,425.3 L1121.0,421.3 Z" fill="#16835d" />
+<polyline points="104.0,570.0 359.2,570.0 614.5,570.0 869.8,570.0 1125.0,570.0" fill="none" stroke="#8b55a1" stroke-width="2.2"/>
+<path d="M104.0,566.0 L108.0,573.5 L100.0,573.5 Z" fill="#8b55a1" />
+<path d="M359.2,566.0 L363.2,573.5 L355.2,573.5 Z" fill="#8b55a1" />
+<path d="M614.5,566.0 L618.5,573.5 L610.5,573.5 Z" fill="#8b55a1" />
+<path d="M869.8,566.0 L873.8,573.5 L865.8,573.5 Z" fill="#8b55a1" />
+<path d="M1125.0,566.0 L1129.0,573.5 L1121.0,573.5 Z" fill="#8b55a1" />
+<polyline points="104.0,570.0 359.2,570.0 614.5,570.0 869.8,570.0 1125.0,570.0" fill="none" stroke="#c07800" stroke-width="2.2"/>
+<path d="M101.0,567.0 L107.0,573.0 M101.0,573.0 L107.0,567.0" stroke="#c07800" stroke-width="1.7" />
+<path d="M356.2,567.0 L362.2,573.0 M356.2,573.0 L362.2,567.0" stroke="#c07800" stroke-width="1.7" />
+<path d="M611.5,567.0 L617.5,573.0 M611.5,573.0 L617.5,567.0" stroke="#c07800" stroke-width="1.7" />
+<path d="M866.8,567.0 L872.8,573.0 M866.8,573.0 L872.8,567.0" stroke="#c07800" stroke-width="1.7" />
+<path d="M1122.0,567.0 L1128.0,573.0 M1122.0,573.0 L1128.0,567.0" stroke="#c07800" stroke-width="1.7" />
+<polyline points="104.0,570.0 359.2,570.0 614.5,570.0 869.8,570.0 1125.0,570.0" fill="none" stroke="#2457a7" stroke-width="2.2"/>
+<circle cx="104.0" cy="570.0" r="4" fill="#2457a7" />
+<circle cx="359.2" cy="570.0" r="4" fill="#2457a7" />
+<circle cx="614.5" cy="570.0" r="4" fill="#2457a7" />
+<circle cx="869.8" cy="570.0" r="4" fill="#2457a7" />
+<circle cx="1125.0" cy="570.0" r="4" fill="#2457a7" />
+<polyline points="104.0,421.3 359.2,421.3 614.5,421.3 869.8,421.3 1125.0,421.3" fill="none" stroke="#d04a35" stroke-width="2.2"/>
+<rect x="100.5" y="417.8" width="7" height="7" fill="#d04a35" />
+<rect x="355.7" y="417.8" width="7" height="7" fill="#d04a35" />
+<rect x="611.0" y="417.8" width="7" height="7" fill="#d04a35" />
+<rect x="866.3" y="417.8" width="7" height="7" fill="#d04a35" />
+<rect x="1121.5" y="417.8" width="7" height="7" fill="#d04a35" />
+<polyline points="104.0,421.3 359.2,421.3 614.5,421.3 869.8,421.3 1125.0,421.3" fill="none" stroke="#16835d" stroke-width="2.2"/>
+<path d="M104.0,417.3 L108.0,421.3 L104.0,425.3 L100.0,421.3 Z" fill="#16835d" />
+<path d="M359.2,417.3 L363.2,421.3 L359.2,425.3 L355.2,421.3 Z" fill="#16835d" />
+<path d="M614.5,417.3 L618.5,421.3 L614.5,425.3 L610.5,421.3 Z" fill="#16835d" />
+<path d="M869.8,417.3 L873.8,421.3 L869.8,425.3 L865.8,421.3 Z" fill="#16835d" />
+<path d="M1125.0,417.3 L1129.0,421.3 L1125.0,425.3 L1121.0,421.3 Z" fill="#16835d" />
+<polyline points="104.0,570.0 359.2,570.0 614.5,570.0 869.8,570.0 1125.0,570.0" fill="none" stroke="#8b55a1" stroke-width="2.2"/>
+<path d="M104.0,566.0 L108.0,573.5 L100.0,573.5 Z" fill="#8b55a1" />
+<path d="M359.2,566.0 L363.2,573.5 L355.2,573.5 Z" fill="#8b55a1" />
+<path d="M614.5,566.0 L618.5,573.5 L610.5,573.5 Z" fill="#8b55a1" />
+<path d="M869.8,566.0 L873.8,573.5 L865.8,573.5 Z" fill="#8b55a1" />
+<path d="M1125.0,566.0 L1129.0,573.5 L1121.0,573.5 Z" fill="#8b55a1" />
+<polyline points="104.0,570.0 359.2,570.0 614.5,570.0 869.8,570.0 1125.0,570.0" fill="none" stroke="#c07800" stroke-width="2.2"/>
+<path d="M101.0,567.0 L107.0,573.0 M101.0,573.0 L107.0,567.0" stroke="#c07800" stroke-width="1.7" />
+<path d="M356.2,567.0 L362.2,573.0 M356.2,573.0 L362.2,567.0" stroke="#c07800" stroke-width="1.7" />
+<path d="M611.5,567.0 L617.5,573.0 M611.5,573.0 L617.5,567.0" stroke="#c07800" stroke-width="1.7" />
+<path d="M866.8,567.0 L872.8,573.0 M866.8,573.0 L872.8,567.0" stroke="#c07800" stroke-width="1.7" />
+<path d="M1122.0,567.0 L1128.0,573.0 M1122.0,573.0 L1128.0,567.0" stroke="#c07800" stroke-width="1.7" />
+<line x1="104.0" y1="661" x2="131.0" y2="661" stroke="#2457a7" stroke-width="2.2"/>
+<circle cx="117.5" cy="661.0" r="4" fill="#2457a7" />
+<text x="139.0" y="666" font-size="13">Kruskal (sparse)</text>
+<line x1="104.0" y1="685" x2="131.0" y2="685" stroke="#d04a35" stroke-width="2.2"/>
+<rect x="114.0" y="681.5" width="7" height="7" fill="#d04a35" />
+<text x="139.0" y="690" font-size="13">Prim (sparse)</text>
+<line x1="104.0" y1="709" x2="131.0" y2="709" stroke="#16835d" stroke-width="2.2"/>
+<path d="M117.5,705.0 L121.5,709.0 L117.5,713.0 L113.5,709.0 Z" fill="#16835d" />
+<text x="139.0" y="714" font-size="13">Kosaraju (sparse)</text>
+<line x1="104.0" y1="733" x2="131.0" y2="733" stroke="#8b55a1" stroke-width="2.2"/>
+<path d="M117.5,729.0 L121.5,736.5 L113.5,736.5 Z" fill="#8b55a1" />
+<text x="139.0" y="738" font-size="13">Kahn (sparse)</text>
+<line x1="104.0" y1="757" x2="131.0" y2="757" stroke="#c07800" stroke-width="2.2"/>
+<path d="M114.5,754.0 L120.5,760.0 M114.5,760.0 L120.5,754.0" stroke="#c07800" stroke-width="1.7" />
+<text x="139.0" y="762" font-size="13">DAG shortest paths (sparse)</text>
+<line x1="614.5" y1="661" x2="641.5" y2="661" stroke="#2457a7" stroke-width="2.2"/>
+<circle cx="628.0" cy="661.0" r="4" fill="#2457a7" />
+<text x="649.5" y="666" font-size="13">Kruskal (dense)</text>
+<line x1="614.5" y1="685" x2="641.5" y2="685" stroke="#d04a35" stroke-width="2.2"/>
+<rect x="624.5" y="681.5" width="7" height="7" fill="#d04a35" />
+<text x="649.5" y="690" font-size="13">Prim (dense)</text>
+<line x1="614.5" y1="709" x2="641.5" y2="709" stroke="#16835d" stroke-width="2.2"/>
+<path d="M628.0,705.0 L632.0,709.0 L628.0,713.0 L624.0,709.0 Z" fill="#16835d" />
+<text x="649.5" y="714" font-size="13">Kosaraju (dense)</text>
+<line x1="614.5" y1="733" x2="641.5" y2="733" stroke="#8b55a1" stroke-width="2.2"/>
+<path d="M628.0,729.0 L632.0,736.5 L624.0,736.5 Z" fill="#8b55a1" />
+<text x="649.5" y="738" font-size="13">Kahn (dense)</text>
+<line x1="614.5" y1="757" x2="641.5" y2="757" stroke="#c07800" stroke-width="2.2"/>
+<path d="M625.0,754.0 L631.0,760.0 M625.0,760.0 L631.0,754.0" stroke="#c07800" stroke-width="1.7" />
+<text x="649.5" y="762" font-size="13">DAG shortest paths (dense)</text>
+</svg>
