@@ -38,3 +38,21 @@ tasks:
   - id: dsu-publication
     status: done
     evidence: Pushed feature/dsu, fast-forwarded main, and ran mvn -B test on merged main (36 passing tests). Pushed main and verified both remote branches at 2b664b6, containing DSU commits 254fa20 and 7468e36. Original staged patch and all saved user file hashes are unchanged.
+  - id: mst-context
+    status: in_progress
+    evidence: Read MST requirements from the assignment PDF and confirmed existing Graph/Edge/DSU APIs; created feature/mst and saved the implementation plan.
+  - id: mst-implementation
+    status: done
+    evidence: Implementer added Kruskal, Prim, immutable MST.Result, README notes, and six TDD tests; RED showed expected missing-API compile failure and full Maven suite passed 42 tests. User staged files remained untouched.
+  - id: mst-review
+    status: done
+    evidence: Independent reviewer approved algorithm/spec compliance with one test-coverage finding: Prim lacked explicit loop/parallel/extreme-weight/tie coverage.
+  - id: mst-review-fix
+    status: done
+    evidence: Extended the edge-case assertions to Prim and Kruskal; focused MST tests passed 6/6 and full suite passed 42/42.
+  - id: mst-rereview
+    status: done
+    evidence: Independent re-review confirmed Prim and Kruskal both have direct loop/parallel/tie/extreme-weight/long-total assertions; no findings remain.
+  - id: mst-verification
+    status: in_progress
+    evidence: Integrator is running clean verification, preserving the existing index, and creating local feature commits.
