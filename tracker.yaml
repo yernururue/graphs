@@ -85,8 +85,8 @@ tasks:
     status: done
     evidence: RED showed Kahn counter expected m (6) vs prior 2m (12); removed initialization increment, test/README/report now use m; focused 7/7 and full suite 52/52 passed.
   - id: dag-paths-verification
-    status: in_progress
-    evidence: Integrator is committing Kahn metric fix and DAG shortest paths, then will run clean verification.
+    status: done
+    evidence: Integrator ran mvn -B clean verify: 52 tests passed, jar built; commits a65d894 (Kahn counter), 4d73db7 (DAG paths), 609e863 (README).
   - id: metrics-benchmark-implementation
     status: pending
     evidence: Awaiting counters, seeded generator, benchmark, and self-checks.
