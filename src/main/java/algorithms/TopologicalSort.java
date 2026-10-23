@@ -16,14 +16,17 @@ public final class TopologicalSort {
     public static final class Result {
         private final List<Integer> order;
         private final long edgeScans;
+        private final AlgorithmMetrics metrics;
 
         private Result(List<Integer> order, long edgeScans) {
             this.order = List.copyOf(order);
             this.edgeScans = edgeScans;
+            this.metrics = new AlgorithmMetrics(0, edgeScans, 0, 0);
         }
 
         public List<Integer> order() { return order; }
         public long edgeScans() { return edgeScans; }
+        public AlgorithmMetrics metrics() { return metrics; }
     }
 
     /** Returns a topological order, or throws if the directed graph contains a cycle. */

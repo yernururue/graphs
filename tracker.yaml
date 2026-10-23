@@ -88,11 +88,20 @@ tasks:
     status: done
     evidence: Integrator ran mvn -B clean verify: 52 tests passed, jar built; commits a65d894 (Kahn counter), 4d73db7 (DAG paths), 609e863 (README).
   - id: metrics-benchmark-implementation
-    status: pending
-    evidence: Awaiting counters, seeded generator, benchmark, and self-checks.
+    status: done
+    evidence: Implementer added AlgorithmMetrics, instrumented results, exact seeded graph generator, benchmark/self-check/atomic CSV, and tests; full suite 57/57 passed and benchmark matched all references with 50 rows.
   - id: metrics-benchmark-review
-    status: pending
-    evidence: Awaiting independent review.
+    status: done
+    evidence: Independent reviewer confirmed seeded generation, medians, references, and CSV, but found incomplete topological permutation validation and non-atomic fallback move.
+  - id: metrics-benchmark-review-fix
+    status: done
+    evidence: Added permutation bounds/uniqueness/edge checks with invalid-order tests; atomic-only CSV replacement with injected failure preserving old file; clarified per-algorithm edge_scans. Focused 7/7, full suite 62/62, benchmark references exact.
+  - id: metrics-benchmark-rereview
+    status: done
+    evidence: Independent re-review approved permutation validation, fail-closed atomic CSV replacement, injected preservation test, and documented counters; no findings remain.
+  - id: metrics-benchmark-verification
+    status: in_progress
+    evidence: Integrator is creating scoped metrics/benchmark commits and will run clean verification.
   - id: report-implementation
     status: pending
     evidence: Awaiting benchmark evidence and report/plots.

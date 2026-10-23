@@ -15,6 +15,7 @@ public final class SCC {
         private final List<List<Integer>> components;
         private final long edgeScans;
         private final int maxDepth;
+        private final AlgorithmMetrics metrics;
 
         private Result(List<List<Integer>> components, long edgeScans, int maxDepth) {
             List<List<Integer>> copy = new ArrayList<>(components.size());
@@ -22,12 +23,14 @@ public final class SCC {
             this.components = List.copyOf(copy);
             this.edgeScans = edgeScans;
             this.maxDepth = maxDepth;
+            this.metrics = new AlgorithmMetrics(0, edgeScans, 0, maxDepth);
         }
 
         public List<List<Integer>> components() { return components; }
         public int count() { return components.size(); }
         public long edgeScans() { return edgeScans; }
         public int maxDepth() { return maxDepth; }
+        public AlgorithmMetrics metrics() { return metrics; }
     }
 
     /** Finds the strongly connected components in an oriented graph. */

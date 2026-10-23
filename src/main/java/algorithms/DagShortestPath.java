@@ -17,18 +17,21 @@ public final class DagShortestPath {
         private final int[] parents;
         private final long totalDistance;
         private final long edgeScans;
+        private final long comparisons;
 
-        private Result(long[] distances, int[] parents, long totalDistance, long edgeScans) {
+        private Result(long[] distances, int[] parents, long totalDistance, long edgeScans, long comparisons) {
             this.distances = distances.clone();
             this.parents = parents.clone();
             this.totalDistance = totalDistance;
             this.edgeScans = edgeScans;
+            this.comparisons = comparisons;
         }
 
         public long[] distances() { return distances.clone(); }
         public int[] parents() { return parents.clone(); }
         public long totalDistance() { return totalDistance; }
         public long edgeScans() { return edgeScans; }
+        public AlgorithmMetrics metrics() { return new AlgorithmMetrics(0, edgeScans, comparisons, 0); }
 
         /** Returns a shortest path from one of the zero-indegree vertices to target. */
         public List<Integer> pathTo(int target) {
@@ -66,11 +69,13 @@ public final class DagShortestPath {
         }
 
         long edgeScans = 0;
+        long comparisons = 0;
         for (int from : order) {
             if (distances[from] == Long.MAX_VALUE) continue;
             for (Edge edge : graph.neighbors(from)) {
                 edgeScans++;
                 long candidate = distances[from] + edge.weight;
+                comparisons++;
                 if (candidate < distances[edge.to]) {
                     distances[edge.to] = candidate;
                     parents[edge.to] = from;
@@ -80,6 +85,6 @@ public final class DagShortestPath {
 
         long totalDistance = 0;
         for (long distance : distances) totalDistance += distance;
-        return new Result(distances, parents, totalDistance, edgeScans);
+        return new Result(distances, parents, totalDistance, edgeScans, comparisons);
     }
 }
